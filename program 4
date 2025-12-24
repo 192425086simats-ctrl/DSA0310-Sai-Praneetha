@@ -1,0 +1,11 @@
+def plural_fsm(noun):
+    if noun.endswith(('s', 'x', 'z', 'ch', 'sh')):
+        return noun + "es"          
+    elif noun.endswith('y') and noun[-2] not in "aeiou":
+        return noun[:-1] + "ies"    
+    else:
+        return noun + "s"           
+word = "baby"
+plural = plural_fsm(word)
+print("Singular:", word)
+print("Plural:", plural)
