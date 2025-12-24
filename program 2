@@ -1,0 +1,26 @@
+def fsa_ends_with_ab(string):
+    state = "q0"   # start state
+     for char in string:
+        if state == "q0":
+            if char == "a":
+                state = "q1"
+            else:
+                state = "q0"
+            elif state == "q1":
+            if char == "b":
+                state = "q2"
+            elif char == "a":
+                state = "q1"
+            else:
+                state = "q0"
+            elif state == "q2":
+            if char == "a":
+                state = "q1"
+            else:
+                state = "q0"
+    if state == "q2":
+        print("String ACCEPTED (ends with 'ab')")
+    else:
+        print("String REJECTED (does not end with 'ab')")
+
+
