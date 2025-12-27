@@ -1,0 +1,6 @@
+text = "All dogs are animals"
+hypothesis = "Dogs are animals"
+if "dogs" in text.lower() and "animals" in text.lower():
+    print("Entailment")
+else:
+    print("No entailment")
