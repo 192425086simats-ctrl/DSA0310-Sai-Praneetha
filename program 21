@@ -1,0 +1,7 @@
+sentence = "John eats apple"
+semantic_representation = {
+    "Agent": "John",
+    "Action": "eats",
+    "Object": "apple"
+}
+print(semantic_representation)
