@@ -1,0 +1,17 @@
+import nltk
+from nltk import bigrams
+from nltk.probability import FreqDist, ConditionalFreqDist
+from nltk.tokenize import word_tokenize
+nltk.download('punkt')
+text = "I love NLP and I love machine learning"
+tokens = word_tokenize(text.lower())
+bigram_list = list(bigrams(tokens))
+fd = FreqDist(tokens)
+cfd = ConditionalFreqDist(bigram_list)
+test_sentence = "I love NLP"
+test_tokens = word_tokenize(test_sentence.lower())
+print("Bigram Probabilities:")
+for i in range(len(test_tokens)-1):
+    w1, w2 = test_tokens[i], test_tokens[i+1]
+    prob = cfd[w1][w2] / fd[w1]
+    print(f"P({w2} | {w1}) = {prob}")
