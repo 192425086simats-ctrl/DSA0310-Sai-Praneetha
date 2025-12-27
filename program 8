@@ -1,0 +1,11 @@
+import nltk
+from nltk.corpus import brown
+from nltk.tag import UnigramTagger
+nltk.download('brown')
+nltk.download('punkt')
+train_data = brown.tagged_sents(categories='news')
+tagger = UnigramTagger(train_data)
+sentence = "The government plans new reforms"
+tokens = nltk.word_tokenize(sentence)
+tags = tagger.tag(tokens)
+print(tags)
