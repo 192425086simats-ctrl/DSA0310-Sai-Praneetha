@@ -1,0 +1,9 @@
+def dialog_act(sentence):
+    if sentence.endswith("?"):
+        return "Question"
+    elif sentence.startswith("Please"):
+        return "Request"
+    else:
+        return "Statement"
+print(dialog_act("What is NLP?"))
+print(dialog_act("Please help me"))
