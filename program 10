@@ -1,0 +1,14 @@
+import nltk
+from nltk.corpus import treebank
+from nltk.tag import UnigramTagger
+from nltk.tag.brill import TrigramRule, BrillTaggerTrainer
+nltk.download('treebank')
+nltk.download('punkt')
+train_data = treebank.tagged_sents()
+initial_tagger = UnigramTagger(train_data)
+templates = [TrigramRule()]
+trainer = BrillTaggerTrainer(initial_tagger, templates)
+brill_tagger = trainer.train(train_data, max_rules=10)
+sentence = "He is running fast"
+tokens = nltk.word_tokenize(sentence)
+print(brill_tagger.tag(tokens))
