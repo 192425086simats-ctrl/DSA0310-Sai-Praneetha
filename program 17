@@ -1,0 +1,7 @@
+from nltk.corpus import wordnet as wn
+import nltk
+nltk.download('wordnet')
+word = "bank"
+synsets = wn.synsets(word)
+for s in synsets:
+    print(s.name(), ":", s.definition())
