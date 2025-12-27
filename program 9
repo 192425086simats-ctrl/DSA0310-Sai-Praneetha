@@ -1,0 +1,16 @@
+import nltk
+from nltk.tag import RegexpTagger
+rules = [
+    (r'.*ing$', 'VBG'),   # gerund
+    (r'.*ed$', 'VBD'),    # past tense
+    (r'.*es$', 'VBZ'),    # verb
+    (r'.*ould$', 'MD'),   # modal
+    (r'.*\'s$', 'NN$'),   # possessive noun
+    (r'.*s$', 'NNS'),     # plural noun
+    (r'^[0-9]+$', 'CD'),  # number
+    (r'.*', 'NN')         # default
+]
+tagger = RegexpTagger(rules)
+sentence = "He is running and played matches"
+tokens = nltk.word_tokenize(sentence)
+print(tagger.tag(tokens))
